@@ -26,10 +26,17 @@ input {
     padding: 10px;
 }
 
-header {
+.toolbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+    padding: 0 20px;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
 }
 
 header img {
@@ -49,7 +56,12 @@ header img {
 .icons img:hover {
     cursor: pointer;
 }
-
+hr {
+  width: 100vw;   
+  border: none;  
+  height: 2px;    
+  background-color: black; 
+}
 /* index */
 
 .container {
