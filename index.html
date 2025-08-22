@@ -8,14 +8,34 @@
   </head>
   <body>
     <div class="container">
-        <h1>Create your character</h1>
-       
+      <h1>Create your character</h1>
+
       <div class="character-creation">
-         <p>Character name</p>
+        <p>Character name</p>
         <input type="text" placeholder="Enter name" />
-        
       </div>
       <button>Create character</button>
     </div>
+
+    <script>
+      const button = document.querySelector("button");
+      const input = document.querySelector("input");
+
+      let characters = JSON.parse(localStorage.getItem("characters")) || [];
+
+      button.addEventListener("click", () => {
+        const name = input.value.trim();
+
+        if (name) {
+          characters.push(name);
+          localStorage.setItem("characters", JSON.stringify(characters));
+          input.value = "";
+        }
+      });
+
+      document.querySelector("button").onclick = function () {
+        location.href = "homepage.html";
+    };
+    </script>
   </body>
 </html>
