@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Start</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <div>
+        <p>Main</p>
+      </div>
+      <div class="icons">
+        <img src="/pictures/home.svg" alt="home"  class="icons1"/>
+        <img src="/pictures/character.svg" alt="character" class="icons2"/>
+        <img src="/pictures/settings.svg" alt="settings" class="icons3"/>
+      </div>
+    </header>
     <div class="container">
-      <button>Fight!</button>  
+      <button>Fight!</button>
     </div>
 
-</body>
+    <script>
+        document.querySelector("icons1").onclick = function () {
+        location.href = "homepage.html";
+    };
+    document.querySelector("icons2").onclick = function () {
+        location.href = "character.html";
+    };
+    document.querySelector("icons3").onclick = function () {
+        location.href = "settings.html";
+    };
+    </script>
+  </body>
 </html>
