@@ -13,7 +13,7 @@ button {
     background-color: lightgrey;
     border-radius: 10px;
     color: black;
-    padding: 20px 30px;
+    padding: 10px 30px;
 }
 
 button:hover {
@@ -89,3 +89,16 @@ hr {
 .character-card img {
     height: 500px;
     width: auto;}
+
+.wins {
+    color: green;
+}
+.losses {
+    color: red;
+}
+/* settings */
+.settings-container {
+    display: flex;
+    flex-direction: row;
+gap: 20px;
+padding: 20px;}
