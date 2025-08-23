@@ -10,7 +10,7 @@
     <header>
       <div class="toolbar">
         <div>
-          <p>Main</p>
+          <p>Character</p>
         </div>
         <div class="icons">
           <img src="/pictures/home.svg" alt="home" class="icons1" />
@@ -23,16 +23,48 @@
       </div>
     </header>
 
-     <script>
-        document.querySelector(".icons1").onclick = function () {
+    <main>
+      <div class="character-card">
+        <div>
+          <img src="/pictures/avatar1.png" alt="avatar1" />
+        </div>
+
+        <div>
+          <p id="playerName">Name</p>
+          <div class="stats">
+            <div class="wins">
+<p>Wins:</p>
+            <p class="playerLosses"></p>
+            </div>
+            <div class="losses">
+<p>Losses:</p>
+            <p class="playerLosses"></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+        const characters = JSON.parse(localStorage.getItem("characters")) || [];
+
+if (characters.length > 0) {
+  const lastCharacter = characters[characters.length - 1]; 
+  document.querySelector("#playerName").textContent = lastCharacter;
+}
+
+
+
+      document.querySelector(".icons1").onclick = function () {
         location.href = "homepage.html";
-    };
-    document.querySelector(".icons2").onclick = function () {
+      };
+      document.querySelector(".icons2").onclick = function () {
         location.href = "character.html";
-    };
-    document.querySelector(".icons3").onclick = function () {
+      };
+      document.querySelector(".icons3").onclick = function () {
         location.href = "settings.html";
-    };
+      };
     </script>
   </body>
 </html>
