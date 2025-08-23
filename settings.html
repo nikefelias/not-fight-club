@@ -10,7 +10,7 @@
     <header>
       <div class="toolbar">
         <div>
-          <p>Main</p>
+          <p>Settings</p>
         </div>
         <div class="icons">
           <img src="/pictures/home.svg" alt="home" class="icons1" />
@@ -22,8 +22,25 @@
         <hr />
       </div>
     </header>
+<main>
+    <div class="settings-container">
+<p>Player Name:</p>
+<p class="player-name">Name</p>
+<button class="edit-button" data-action="edit">Edit</button>
+    </div>
 
+</main>
      <script>
+
+        window.addEventListener("DOMContentLoaded", () => {
+  let characters = JSON.parse(localStorage.getItem("characters")) || [];
+  let lastCharacter = characters[characters.length - 1]; // берем последнего введённого
+
+  if (lastCharacter) {
+    document.querySelector(".player-name").textContent = lastCharacter;
+  }
+});
+
         document.querySelector(".icons1").onclick = function () {
         location.href = "homepage.html";
     };
@@ -33,6 +50,37 @@
     document.querySelector(".icons3").onclick = function () {
         location.href = "settings.html";
     };
+
+let editButton = document.querySelector('.edit-button');
+let nameElement = document.querySelector('.player-name');
+
+
+// editButton.addEventListener('click', (e) => {
+//   if (e.target.dataset.action === 'edit') {
+//     console.log('you pressed edit');
+//   }
+// });
+editButton.addEventListener('click', () => {
+let input = document.createElement('input');
+input.type = 'text';
+input.value = nameElement.textContent;
+
+nameElement.replaceWith(input);
+  input.focus();
+
+  input.addEventListener('blur', () => {
+    nameElement.textContent = input.value; 
+    input.replaceWith(nameElement); 
+  });
+
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      input.blur(); 
+    }
+  });
+});
+
+
     </script>
   </body>
 </html>
