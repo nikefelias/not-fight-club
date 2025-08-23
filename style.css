@@ -32,6 +32,7 @@ input {
     align-items: center;
     padding: 0 20px;
 }
+
 header {
     display: flex;
     flex-direction: column;
@@ -56,12 +57,14 @@ header img {
 .icons img:hover {
     cursor: pointer;
 }
+
 hr {
-  width: 100vw;   
-  border: none;  
-  height: 2px;    
-  background-color: black; 
+    width: 100vw;
+    border: none;
+    height: 2px;
+    background-color: black;
 }
+
 /* index */
 
 .container {
@@ -84,21 +87,59 @@ hr {
 /* character */
 .character-card {
     display: flex;
-    flex-direction: row;;
+    flex-direction: row;
+    ;
 }
+
 .character-card img {
     height: 500px;
-    width: auto;}
+    width: auto;
+}
 
 .wins {
     color: green;
 }
+
 .losses {
     color: red;
 }
+
+.other-avatars {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+}
+
+.other-avatars img {
+    height: 100px;
+    width: auto;
+}
+
+.avatar-option {
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.avatar-option.is-selected {
+    outline: 3px solid #000;
+}
+
+/* #currentAvatar {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+} */
+
+
 /* settings */
 .settings-container {
     display: flex;
     flex-direction: row;
-gap: 20px;
-padding: 20px;}
+    gap: 20px;
+    padding: 20px;
+}
