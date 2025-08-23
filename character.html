@@ -67,6 +67,8 @@
     </main>
 
     <script>
+
+        // name
       const characters = JSON.parse(localStorage.getItem("characters")) || [];
 
       if (characters.length > 0) {
@@ -74,6 +76,7 @@
         document.querySelector("#playerName").textContent = lastCharacter;
       }
 
+        //   header
       document.querySelector(".icons1").onclick = function () {
         location.href = "homepage.html";
       };
