@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Fight</title>
-</head>
-<body>
-       <header>
+  </head>
+  <body>
+    <header>
       <div class="toolbar">
         <div>
           <p>Settings</p>
@@ -23,19 +23,78 @@
       </div>
     </header>
 
-<main>
-    <div>
-        <div class="character-card">
-<p class="player-name">Name</p>
-<img id="currentAvatar" src="/pictures/avatar1.png" alt="avatar" />
+    <main>
+      <div id="fight-container">
+        <div class="character-card-fight">
+          <p class="player-name">Name</p>
+          <img id="currentAvatar" src="/pictures/avatar1.png" alt="avatar" />
+          <div class="health-bar">
+            <div class="health-fill" id="healthFill"></div>
+          </div>
         </div>
-        
-    </div>
-</main>
 
+        <div class="character-card-text">
+          <p>Please pick 1 Attack zone and 2 Defence zone</p>
+          <div class="zones">
+            <div class="attack-zones">
+              <div class="attack-zone">
+                <label for="head">Head</label><br />
+                <input type="radio" id="head" name="attack" value="head" />
+              </div>
+              <div class="attack-zone">
+                <label for="neck">Neck</label><br />
+                <input type="radio" id="neck" name="attack" value="neck" />
+              </div>
+              <div class="attack-zone">
+                <label for="body">Body</label><br />
+                <input type="radio" id="body" name="attack" value="body" />
+              </div>
+              <div class="attack-zone">
+                <label for="belly">Belly</label><br />
+                <input type="radio" id="belly" name="attack" value="belly" />
+              </div>
+              <div class="attack-zone">
+                <label for="legs">Legs</label><br />
+                <input type="radio" id="legs" name="attack" value="legs" />
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="defence-zones">
+              <div class="defence-zone">
+                <input type="radio" id="head" name="defence" value="head" />
+                <label for="head">Head</label><br />
+              </div>
+              <div class="defence-zone">
+                <input type="radio" id="neck" name="defence" value="neck" />
+                <label for="neck">Neck</label><br />
+              </div>
+              <div class="defence-zone">
+                <input type="radio" id="body" name="defence" value="body" />
+                <label for="body">Body</label><br />
+              </div>
+              <div class="defence-zone">
+                <input type="radio" id="belly" name="defence" value="belly" />
+                <label for="belly">Belly</label><br />
+              </div>
+              <div class="defence-zone">
+                <input type="radio" id="legs" name="defence" value="legs" />
+                <label for="legs">Legs</label><br />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-card-fight">
+          <p class="player-name">Name</p>
+          <img id="currentAvatar" src="/pictures/avatar1.png" alt="avatar" />
+          <div class="health-bar">
+            <div class="health-fill" id="healthFill"></div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script>
-        //   header
+      //   header
       document.querySelector(".icons1").onclick = function () {
         location.href = "homepage.html";
       };
@@ -49,13 +108,23 @@
       let editButton = document.querySelector(".edit-button");
       let nameElement = document.querySelector(".player-name");
 
-    //   avatar
-    window.addEventListener('DOMContentLoaded', () => {
-  let saved = localStorage.getItem('selectedAvatar');
-  if (saved) {
-    currentAvatar.src = saved;
-  }
-});
+      //   avatar
+      window.addEventListener("DOMContentLoaded", () => {
+        let saved = localStorage.getItem("selectedAvatar");
+        if (saved) {
+          currentAvatar.src = saved;
+        }
+      });
+
+      //
+      window.addEventListener("DOMContentLoaded", () => {
+        let characters = JSON.parse(localStorage.getItem("characters")) || [];
+        let lastCharacter = characters[characters.length - 1]; // берем последнего введённого
+
+        if (lastCharacter) {
+          document.querySelector(".player-name").textContent = lastCharacter;
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
